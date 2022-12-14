@@ -1,14 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path");
-require('dotenv').config(); // allow us to access the secure env file
 const {Post, UserProfile} = require('./models')
 const ejs = require('ejs')
+require('dotenv').config(); // allow us to access the secure env file
+
 
 app = express(); // initialise the express framework
 
 app.listen(3000) // listen for requests on post 3000
 app.set('view engine', 'ejs')
+app.use(express.static('/Users/mac1/Node.JS/My-Coding-Blog/public'))
+
 
 let databaseURI = process.env.DBURI
 mongoose.set('strictQuery', false)
