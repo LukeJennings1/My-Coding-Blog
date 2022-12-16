@@ -8,7 +8,7 @@ require('dotenv').config(); // allow us to access the secure env file
 
 app = express(); // initialise the express framework
 
-app.listen(3000) // listen for requests on post 3000
+app.listen(3001) // listen for requests on post 3001
 app.set('view engine', 'ejs')
 app.use(express.static('/Users/mac1/Node.JS/My-Coding-Blog/public'))
 
@@ -25,13 +25,16 @@ database.on("error", console.error.bind(console, "mongo connection error"));
 // })
 // newPost.save()
 
-app.get('/', (req,res) => {
-    res.render('index')
-})
+// The purpose of this project is to simply produce apis that will be consumed by the react websites. Of which, one
+// site will consume only the api and the other will have the ability to perform crud actions on the api. 
 
+app.get('/', (req,res) => {
+    // res.render('index')
+}) 
 app.get('/posts', (req,res) => {
-    res.json({
-        post1: 'test1',
+    res.set('Access-Control-Allow-Origin', '*'); // this sets up cors for all origin reqeusts (* means all)
+    res.json({                                  // if we want to just give access to one oriigin we can put the http request url of
+        post1: 'test1',                        // the requester here so for example "http://localhost:3000" etc 
         post2: 'test2',
         post3: 'test3'
     })
