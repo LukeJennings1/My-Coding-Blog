@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Edu+SA+Beginner:wght@700&family=Inconsolata:wght@300&family=Josefin+Sans&family=Kdam+Thmor+Pro&family=Noto+Sans+KR:wght@500&family=Oldenburg&family=Pacifico&family=Roboto:wght@900&family=Rubik:ital,wght@0,400;1,700&family=Secular+One&display=swap');
+
+*{
+    margin: 0;
+    border: 0;
+    font-family: 'Secular One', sans-serif, 'Noto Sans KR';
+    background-color: #1A1a1d;
+}
+
+#blog-title {
+    max-height: 100px;
+    padding: 25px;
+    padding-left: 40px;
+    width: auto;
+    color: #C3073F
+}
+#sub-heading-wrapper {
+    font-size: large;
+    max-height: 300px;
+    padding: 40px;
+    width: auto;
+    /* background-color: #28282c; */
+    box-shadow: 3px 3px 10px 3px #000000;
+}
+#sub-heading-heading {
+    font-size: 60px;
+    padding-bottom: 15px;
+    color: #a80b4a;
+}
+#sub-heading-content {
+    color: #ca4b7e ;
+    margin-left: 75px;
+}

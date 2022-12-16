@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+<% async function pullrequest(){  %> 
+<% await fetch('http://localhost:3000/posts').then((response) => {response.json()}).then((response) => {return response}) %> 
+<% } %> 
+
+    <h1 id = 'blog-title'>Luke's Coding Blog</h1>
+
+        <div id="sub-heading-wrapper">
+        <h2 id = 'sub-heading-heading'>From Beginner <br id = 'sub-heading-headering-break'> &nbsp&nbsp to Professional</h2>
+        <p id = 'sub-heading-content'> Read, comment and digest my short blog posts that focus on learning to code.  </p>
+        </div>
+
+        <div id = 'content-wrapper'>
+            <%= pullrequest() %> 
+        </div>
+
+</body>
+</html>
