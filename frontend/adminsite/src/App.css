@@ -46,9 +46,34 @@
 .blog-articles-wrapper {
   display: grid;
   justify-content: center;
+  
   border: solid #ca4b7e;
   border-radius: 10px;
   align-items: center;
   color: rgb(226, 225, 225);
   overflow: scroll;
+}
+#blog-article-read-more-button {
+  height: 50px;
+  max-height: 100px;
+  max-width: 200px;
+  border: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: #a80b4a;
+}
+@keyframes hover-fade {
+  0% {background-color: transparent}
+  100% {background-color: rgb(223, 223, 223)}
+}
+#blog-article-read-more-button:hover {
+  animation-name: hover-fade;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+#blog-article-link-button {
+  text-decoration: none;
 }

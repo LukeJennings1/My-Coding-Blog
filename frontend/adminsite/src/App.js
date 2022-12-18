@@ -39,8 +39,12 @@ function App() {
                 <p className='blog-article-body'>{element.blogSubTitle}</p>
                 
 
-               <Link to = { `/posts/${element._id}`} state = {element.blogTitle}>
-                 <div>Click Here</div>
+               <Link 
+                  to = { `/posts/${element._id}`}
+                  state = {[element.blogTitle, element.blogSubTitle, element.blogBody]}
+                  id = 'blog-article-link-button' >
+
+                 <div id = 'blog-article-read-more-button'>View Article</div>
                </Link>
                 
             </div>
