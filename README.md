@@ -2,11 +2,9 @@
 
 Project Plan: 
 
-- Models and schemas - 
+- Things to do - 
 
-    What do I need?
-
-Login form 
+Create a component that takes the api props and forms an article page after click
 
 
 
