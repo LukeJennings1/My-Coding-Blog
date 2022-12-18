@@ -1,17 +1,15 @@
+import { useLocation } from 'react-router-dom'
 
-
-function individualPost(props) {
-
-
+function IndividualPost() {
+    const location = useLocation()
+    console.log(location.state)
 
     return (
         <div id = 'individualPost-page-wrapper'>
-            <h1>{props.title}</h1>
-            <h2>{props.subTitle}</h2>
-            <h3>{props.body}</h3>
+            <h1>{location.state}</h1>
         </div>
     )
 }
 
 
-export default individualPost;
+export default IndividualPost;

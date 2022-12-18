@@ -39,7 +39,7 @@ function App() {
                 <p className='blog-article-body'>{element.blogSubTitle}</p>
                 
 
-               <Link to = {`/posts/${element._id}`}>
+               <Link to = { `/posts/${element._id}`} state = {element.blogTitle}>
                  <div>Click Here</div>
                </Link>
                 
