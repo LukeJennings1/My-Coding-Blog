@@ -6,9 +6,9 @@ Project Plan:
 
     What do I need?
 
-- Admin only login so that I can delete/update posts. This will require a user model (for just one person)
+Login form 
 
-- blog post schema for each post
+
 
 ---------------------------
 

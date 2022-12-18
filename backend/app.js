@@ -33,10 +33,11 @@ app.get('/', (req,res) => {
 }) 
 app.get('/posts', (req,res) => {
     res.set('Access-Control-Allow-Origin', '*'); // this sets up cors for all origin reqeusts (* means all)
-    res.json({                                  // if we want to just give access to one oriigin we can put the http request url of
-        post1: 'test1',                        // the requester here so for example "http://localhost:3000" etc 
-        post2: 'test2',
-        post3: 'test3'
-    })
+    res.json([                                 // if we want to just give access to one oriigin we can put the http request url of
+        {title:'test1', body: 'this is the body', id: 1},                        // the requester here so for example "http://localhost:3000" etc 
+        {title:'test2', body: 'this is the body2', id: 2},  
+        {title:'test3', body: 'this is the body3', id: 3},
+        {title:'test4', body: 'this is the body4', id: 4},
+        {title:'test5', body: 'this is the body5', id: 5},
+    ])
 })
-
