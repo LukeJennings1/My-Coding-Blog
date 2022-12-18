@@ -39,9 +39,9 @@ function App() {
                 <p className='blog-article-body'>{element.blogSubTitle}</p>
                 
 
-                {/* <Link to = {<IndividualPost title = {element.title} body = {element.body}/>}>
-                  <div>Click here</div>
-                </Link> */}
+               <Link to = {`/posts/${element._id}`}>
+                 <div>Click Here</div>
+               </Link>
                 
             </div>
             )

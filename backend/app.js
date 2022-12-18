@@ -23,9 +23,9 @@ database.on("error", console.error.bind(console, "mongo connection error"));
 
 
 //  const  newPost = new Post({ 
-//         blogTitle: 'new title',
-//         blogSubTitle: 'this is the sub title',
-//         blogBody:   'this is the blog body'
+//         blogTitle: 'new title2',
+//         blogSubTitle: 'this is the sub title2',
+//         blogBody:   'this is the blog body2'
 //  })
 //  newPost.save()
 
