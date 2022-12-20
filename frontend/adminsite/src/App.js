@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import IndividualPost from './IndividualPost';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import Footer from './footer';
 
 function App() {
   const [apiData, setApiData] = useState([]);
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <div id = 'blog-title-wrapper'>
+      <div className= 'blog-title-wrapper'>
         <h1>Luke's Coding Blog</h1>
       </div>
 
@@ -42,7 +43,7 @@ function App() {
                <Link 
                   to = { `/posts/${element._id}`}
                   state = {[element.blogTitle, element.blogSubTitle, element.blogBody]}
-                  id = 'blog-article-link-button' >
+                  className = 'blog-article-link-button' >
 
                  <div id = 'blog-article-read-more-button'>View Article</div>
                </Link>
@@ -51,6 +52,7 @@ function App() {
             )
           })}
         </div>
+          <Footer />
     </div>
   );
 }

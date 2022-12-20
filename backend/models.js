@@ -12,7 +12,13 @@ const User = new Schema({
     passWord: {type: String, required: true}
 })
 
+const Comment = new Schema({
+    username: {type: String, require: true},
+    message: {type: String, require: true}
+})
+
+const BlogComment = mongoose.model('BlogComment', Comment)
 const Post = mongoose.model('BlogPost', Blogpost);
 const UserProfile = mongoose.model('AdminLogin', User);
 
-module.exports = {Post: Post, UserProfile: UserProfile}
+module.exports = {Post: Post, UserProfile: UserProfile, BlogComment: BlogComment}

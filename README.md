@@ -4,8 +4,13 @@ Project Plan:
 
 - Things to do - 
 
-Create a component that takes the api props and forms an article page after click
+next up: 
 
+Create the ability to leave messages/comments on a post. 
+
+
+
+Create a secondary website that is forwarded once the admin logs in (IE an authenticated route)
 
 
 ---------------------------
