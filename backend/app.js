@@ -43,12 +43,17 @@ app.get('/posts', (req,res) => {
     // res.database.find(blogPosts)
     Post.find().then((result) => {res.json(result)})
 
-})
+});
 app.post('/blogComment', (req, res) => {
     console.log(req.body)
     const add = new BlogComment({
         username: req.body.username,
         message: req.body.message
     })
-    add.save()
+    add.save();
+})
+app.get('/comments', (req,res) => {
+    res.set('Access-Control-Allow-Origin', '*'); // this sets up cors for all origin reqeusts (* means all)
+    BlogComment.find().then((result) => {res.json(result), console.log(result)})
+
 })

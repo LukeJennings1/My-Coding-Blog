@@ -83,7 +83,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 78vh;
+  height: 90vh;
 }
 #individualPost-page-wrapper {
   height: 100vh;
@@ -115,4 +115,41 @@
   max-height: 90px;
   width: auto;
   padding-top: 7px;
+}
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#add-comment-to-post {
+  border: solid;
+  width: 80%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+}
+#input-comment-title {
+  background-color: #d8d8d8;
+}
+#name-post {
+  height: auto;
+  width: 90%;
+  background-color: #b1b1b1;
+}
+#post {
+  border: solid;
+  width: 90%;
+  background-color: #b1b1b1;
+}
+#textarea-post {
+  height: 70%;
+  width: 90%;
+  resize: none;
+  background-color: #b1b1b1;
 }
