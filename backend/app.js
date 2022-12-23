@@ -3,16 +3,21 @@ const mongoose = require('mongoose');
 const path = require("path");
 const {Post, UserProfile, BlogComment} = require('./models')
 const ejs = require('ejs')
+const cors = require('cors')
 require('dotenv').config(); // allow us to access the secure env file
 
 
 app = express(); // initialise the express framework
+app.use(cors())
+
 
 app.listen(3001) // listen for requests on post 3001
 // app.listen(3002)
 app.set('view engine', 'ejs')
 app.use(express.static('/Users/mac1/Node.JS/My-Coding-Blog/public'))
 app.use(express.urlencoded())
+app.use(express.json())
+
 
 
 
@@ -46,11 +51,11 @@ app.get('/posts', (req,res) => {
 });
 app.post('/blogComment', (req, res) => {
     console.log(req.body)
-    const add = new BlogComment({
-        username: req.body.username,
-        message: req.body.message
-    })
-    add.save();
+    // const add = new BlogComment({
+    //     username: req.body.username,
+    //     message: req.body.message
+    // })
+    // add.save();
 })
 app.get('/comments', (req,res) => {
     res.set('Access-Control-Allow-Origin', '*'); // this sets up cors for all origin reqeusts (* means all)
