@@ -51,11 +51,11 @@ app.get('/posts', (req,res) => {
 });
 app.post('/blogComment', (req, res) => {
     console.log(req.body)
-    // const add = new BlogComment({
-    //     username: req.body.username,
-    //     message: req.body.message
-    // })
-    // add.save();
+    const add = new BlogComment({
+        username: req.body.username,
+        message: req.body.message
+    })
+    add.save();
 })
 app.get('/comments', (req,res) => {
     res.set('Access-Control-Allow-Origin', '*'); // this sets up cors for all origin reqeusts (* means all)
