@@ -8,23 +8,32 @@ function IndividualPost() {
 const [username, SetUsername] = useState();
 const [message, setMessage] = useState();
 const [hasSubmittedMessage, sethasSubmittedMessage] = useState(false);
+const [blogPostComments, setblogPostComments] = useState();
+const blog = useLocation();
 const dataToSubmit = {
     username,
     message,
+    URLid: window.location.pathname
 }
-
-
-    const blog = useLocation()
-
-        const fetchcomments = async () => { 
+        const fetchcomments = async () => {
             const fetcher = await fetch('http://localhost:3001/comments')
-            fetcher.json().then((result) => {console.log(result)})
+            fetcher.json().then((result) => {
+                
+                result.filter(x => {
+                    if (x.URLid === window.location.pathname){
+                        return (
+                            console.log(x),
+                            setblogPostComments([x])
+                        )
+                    }
+                })
+                
+            }).then(() => {console.log(blogPostComments)})
         }
+    
 
     const submitHandler =  async (e) => {
             e.preventDefault()
-            sethasSubmittedMessage(true)
-            console.log(hasSubmittedMessage)
              const push = await fetch('http://localhost:3001/blogComment',
              {  
                 method: "POST",
@@ -32,9 +41,11 @@ const dataToSubmit = {
                 'Access-Control-Allow-Origin':'*',
                 'Access-Control-Allow-Methods':'POST'},
                 body: JSON.stringify(dataToSubmit)
-        })
-            .then((result) => {console.log(result.json())})
+        }).then(sethasSubmittedMessage(true))
+    
+            // .then(() => {sethasSubmittedMessage(true)})
         }
+
     
 
     return (
@@ -56,17 +67,17 @@ const dataToSubmit = {
             <h3>{blog.state[2]}</h3>
     </div>
 
-        <form id = 'add-comment-to-post' onSubmit={(e) => {if(hasSubmittedMessage === false){submitHandler(e)}}} >
+        <form id = 'add-comment-to-post' >
             <h1 id = 'input-comment-title'>Leave a comment</h1>
             <input type='text' id = 'name-post' name = 'username' placeholder='Name' onChange={(e) => {SetUsername(e.target.value)}}></input>
             <textarea type='text' id = 'textarea-post' rows='4' col = '10' name = 'message' placeholder='Message' onChange={(e) => {setMessage(e.target.value)}}></textarea>
-            <button type ='submit' onClick={() => {fetchcomments()}} >Submit</button>
+            <button type ='submit' disabled={hasSubmittedMessage} onClick={(e) => {submitHandler(e);fetchcomments(e)}} >Submit</button>
         </form>
         </div>
     <Footer />
 
         </div>
-       
+
     )
 }
 

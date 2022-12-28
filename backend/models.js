@@ -14,7 +14,8 @@ const User = new Schema({
 
 const Comment = new Schema({
     username: {type: String, require: true},
-    message: {type: String, require: true}
+    message: {type: String, require: true},
+    URLid: {type: String, require: true},
 })
 
 const BlogComment = mongoose.model('BlogComment', Comment)

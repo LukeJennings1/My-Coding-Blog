@@ -53,7 +53,8 @@ app.post('/blogComment', (req, res) => {
     console.log(req.body)
     const add = new BlogComment({
         username: req.body.username,
-        message: req.body.message
+        message: req.body.message,
+        URLid: req.body.URLid
     })
     add.save();
 })
