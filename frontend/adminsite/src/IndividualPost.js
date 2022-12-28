@@ -1,36 +1,51 @@
 import { useLocation, Link, json } from 'react-router-dom';
 import homeIcon from '/Users/mac1/Node.JS/My-Coding-Blog/frontend/adminsite/src/Assets/homeicon.png';
 import Footer from './footer';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function IndividualPost() {
 
 const [username, SetUsername] = useState();
 const [message, setMessage] = useState();
 const [hasSubmittedMessage, sethasSubmittedMessage] = useState(false);
-const [blogPostComments, setblogPostComments] = useState();
+const [blogPostComments, setblogPostComments] = useState([]);
 const blog = useLocation();
 const dataToSubmit = {
     username,
     message,
     URLid: window.location.pathname
 }
+        // const fetchcomments = async () => {
+        //     const fetcher = await fetch('http://localhost:3001/comments')
+        //     fetcher.json().then((result) => {
+                
+        //         result.filter(x => {
+        //             if (x.URLid === window.location.pathname){
+        //                 return (
+        //                     setcommentArray([x]), console.log(commentArray)
+        //                 )
+        //             }
+        //         })
+                
+        //     })
+        // }
+    useEffect(() => {
+        let array = [];
         const fetchcomments = async () => {
             const fetcher = await fetch('http://localhost:3001/comments')
             fetcher.json().then((result) => {
-                
-                result.filter(x => {
-                    if (x.URLid === window.location.pathname){
-                        return (
-                            console.log(x),
-                            setblogPostComments([x])
-                        )
+                result.map(content => {
+                    if (content.URLid === window.location.pathname){
+                        console.log(content.message)
+                            // setblogPostComments([content])
+                            array.push(content)
                     }
                 })
-                
-            }).then(() => {console.log(blogPostComments)})
+            }).then(() => {console.log(array)})
         }
-    
+        fetchcomments()
+        
+    },[])
 
     const submitHandler =  async (e) => {
             e.preventDefault()
@@ -42,11 +57,8 @@ const dataToSubmit = {
                 'Access-Control-Allow-Methods':'POST'},
                 body: JSON.stringify(dataToSubmit)
         }).then(sethasSubmittedMessage(true))
-    
             // .then(() => {sethasSubmittedMessage(true)})
         }
-
-    
 
     return (
         <div id = 'individualPost-page-wrapper'>
@@ -71,7 +83,7 @@ const dataToSubmit = {
             <h1 id = 'input-comment-title'>Leave a comment</h1>
             <input type='text' id = 'name-post' name = 'username' placeholder='Name' onChange={(e) => {SetUsername(e.target.value)}}></input>
             <textarea type='text' id = 'textarea-post' rows='4' col = '10' name = 'message' placeholder='Message' onChange={(e) => {setMessage(e.target.value)}}></textarea>
-            <button type ='submit' disabled={hasSubmittedMessage} onClick={(e) => {submitHandler(e);fetchcomments(e)}} >Submit</button>
+            <button type ='submit' disabled={hasSubmittedMessage} onClick={(e) => {submitHandler(e);setblogPostComments(true)}} >Submit</button>
         </form>
         </div>
     <Footer />
