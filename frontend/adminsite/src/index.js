@@ -7,7 +7,6 @@ import IndividualPost from './IndividualPost'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
   <BrowserRouter>
 
     <Routes>
@@ -19,5 +18,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     </Routes>
   </BrowserRouter>
-  </React.StrictMode>
 );
