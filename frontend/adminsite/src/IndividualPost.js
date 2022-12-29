@@ -8,7 +8,6 @@ function IndividualPost() {
 const [username, SetUsername] = useState();
 const [message, setMessage] = useState();
 const [hasSubmittedMessage, sethasSubmittedMessage] = useState(false);
-const [fetchiscomplete, setfetchiscomplete] = useState(false);
 const blog = useLocation();
 const dataToSubmit = {
     username,
@@ -16,25 +15,12 @@ const dataToSubmit = {
     URLid: window.location.pathname
 }
 const [blogPostComments, setblogPostComments] = useState([]);
-let array = [];
-let testarray = [{hi:'hi'}];
 
     useEffect(() => {
-       
-         fetch('http://localhost:3001/comments').then((res) => {return (res.json())}).then(
-                (res) => setblogPostComments(res)
-            )
-        
+         fetch('http://localhost:3001/comments').then((res) => {return (res.json())})
+         .then((res) => setblogPostComments(res))
+    },[hasSubmittedMessage])
 
-
-                // result.map(content => {
-                //     if (content.URLid === window.location.pathname){
-                //             array.push(content)
-                //     }
-                // })
-                // setblogPostComments(result)
-        
-    },[])
     const submitHandler =  async (e) => {
             e.preventDefault()
              const push = await fetch('http://localhost:3001/blogComment',
@@ -60,7 +46,14 @@ let testarray = [{hi:'hi'}];
 
         <div className='content-wrapper'>
         <div>{blogPostComments && blogPostComments.map((data) => {
-            return <div>{data.message}</div>
+            if (data.URLid === window.location.pathname){
+                
+            return <div key={data._id}>
+                <h2>{data.username}</h2>
+                <h3>{data.message}</h3>
+
+                </div>
+        }
         })}</div>
 
     <div id = 'blog-content-wrapper'>
