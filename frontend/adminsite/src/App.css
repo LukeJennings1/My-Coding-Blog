@@ -8,11 +8,18 @@
 }
 
 .blog-title-wrapper {
+    display: flex;
     max-height: 8vh;
     padding: 25px;
     padding-left: 40px;
     width: auto;
-    color: #C3073F
+    color: #C3073F;
+    justify-content: space-between;
+    align-items: center;
+}
+#link-wrapper {
+  text-decoration: none;
+  color: #C3073F;
 }
 #sub-heading-wrapper {
     font-size: large;

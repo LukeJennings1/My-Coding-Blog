@@ -25,7 +25,7 @@ const [blogPostComments, setblogPostComments] = useState([]);
             e.preventDefault()
             if (username.length > 0 && message.length > 0) {
              const push = await fetch('http://localhost:3001/blogComment',
-             {  
+             {
                 method: "POST",
                 headers: {'Content-Type':'application/json',
                 'Access-Control-Allow-Origin':'*',

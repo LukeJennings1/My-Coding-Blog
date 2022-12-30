@@ -24,6 +24,7 @@ function App() {
     <div className="App">
       <div className= 'blog-title-wrapper'>
         <h1>Luke's Coding Blog</h1>
+
       </div>
 
         <div id="sub-heading-wrapper">
@@ -39,7 +40,6 @@ function App() {
                 <h2 className='blog-article-title'>{element.blogTitle}</h2>
                 <p className='blog-article-body'>{element.blogSubTitle}</p>
                 
-
                <Link 
                   to = { `/posts/${element._id}`}
                   state = {[element.blogTitle, element.blogSubTitle, element.blogBody]}
