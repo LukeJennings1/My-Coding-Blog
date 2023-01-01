@@ -18,18 +18,21 @@ const newBlogPostdata = {
   BlogSubTitle,
   BlogBody,
 }
+const [blogarticleposts, setblogarticleposts] = useState([])
 
-  // const blogPostFetch = async() => {
-  //   const data = await fetch('http://localhost:3001/posts')
-  //   data.json().then((result) => {console.log(result)})
-  // }
-  // blogPostFetch()
+useEffect(() => {
+  const fetcher = async () => { // fetches blog posts from the blog post api
+    const fetchapiaddress = await fetch('http://localhost:3001/posts')
+    fetchapiaddress.json().then((result) => {setblogarticleposts(result)}).catch((err) => console.log(err))
+  }
+  fetcher()
+},[]);
 
-  const newblogpost = async (e) => {
+
+  const newblogpost = async (e) => { 
     console.log(BlogTitle,BlogBody,BlogSubTitle)
     e.preventDefault();
     const fetchposts = await fetch('http://localhost:3001/newarticle', {
-      
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,6 +40,8 @@ const newBlogPostdata = {
       body: JSON.stringify(newBlogPostdata)
     })
   }
+
+
 
 
   return (
@@ -49,9 +54,20 @@ const newBlogPostdata = {
           <input type = 'submit' onClick={(e) => {newblogpost(e)}}></input>
         </form>
       </header>
+
+      <div>{blogarticleposts.map((item) => {
+        return (
+          <div key={item._id}>
+
+            {item.blogTitle}
+          </div>
+        )
+      })}</div>
     </div>
   );
 }
+
+
 
  {/* <form action='/delete' method='POST'>
                   <button type='submit' name='delete' placeholder='Delete'>hello</button>
