@@ -29,7 +29,11 @@ const newBlogPostdata = {
     console.log(BlogTitle,BlogBody,BlogSubTitle)
     e.preventDefault();
     const fetchposts = await fetch('http://localhost:3001/newarticle', {
+      
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(newBlogPostdata)
     })
   }

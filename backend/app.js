@@ -48,9 +48,12 @@ app.get('/posts', (req,res) => { // for fetching articles
 });
 app.post('/newarticle', (req,res) => {
     console.log(req.body)
-    // const newArticle = new Post({
-    //     blogTitle: req.body.
-    // })
+    const newArticle = new Post({
+        blogTitle: req.body.BlogTitle,
+        blogSubTitle: req.body.BlogSubTitle,
+        blogBody: req.body.BlogBody
+    })
+    newArticle.save();
 })
 
 
