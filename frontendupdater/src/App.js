@@ -53,4 +53,9 @@ const newBlogPostdata = {
   );
 }
 
+ {/* <form action='/delete' method='POST'>
+                  <button type='submit' name='delete' placeholder='Delete'>hello</button>
+                </form> */}
+
+
 export default App;
