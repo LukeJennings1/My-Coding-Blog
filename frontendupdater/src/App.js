@@ -29,13 +29,11 @@ useEffect(() => {
   }
   const fetchblogcomments = async () => {
     const fetchapiaddress = await fetch('http://localhost:3001/comments')
-    fetchapiaddress.json().then((result) => {setblogarticlecomments(result)}).catch((err) => {console.log(err)})
+    fetchapiaddress.json().then((result) => {setblogarticlecomments(result); console.log(result)}).catch((err) => {console.log(err)})
   } 
   fetchblogcomments()
   fetchblogposts()
 },[]);
-
-
 
   const newblogpost = async (e) => { 
     console.log(BlogTitle,BlogBody,BlogSubTitle)
