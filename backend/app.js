@@ -55,7 +55,10 @@ app.post('/newarticle', (req,res) => {
     })
     newArticle.save();
 })
-
+app.post('/delete', (req, res) => {
+    console.log(req.body)
+    Post.deleteOne({_id: req.body.id}).then(() => {res.sendStatus(200)})
+})
 
 app.post('/blogComment', (req, res) => {
     console.log(req.body)

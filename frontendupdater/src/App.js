@@ -56,10 +56,14 @@ useEffect(() => {
       </header>
 
       <div>{blogarticleposts.map((item) => {
+        console.log(item)
         return (
           <div key={item._id}>
-
             {item.blogTitle}
+             <form action='http://localhost:3001/delete' method='POST'>
+               <input type="hidden" name = 'id' value={item._id}></input>
+                  <button type='submit' placeholder='Delete'>hello</button>
+                </form>
           </div>
         )
       })}</div>
@@ -69,9 +73,7 @@ useEffect(() => {
 
 
 
- {/* <form action='/delete' method='POST'>
-                  <button type='submit' name='delete' placeholder='Delete'>hello</button>
-                </form> */}
+
 
 
 export default App;
