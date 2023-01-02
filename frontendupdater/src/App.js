@@ -66,6 +66,10 @@ useEffect(() => {
             <div key = {item._id}>
               <div>{item.username}</div>
               <div>{item.message}</div>
+              <form action='http://localhost:3001/deletecomment' method='POST'>
+                <input type="hidden"  name = 'id' value={item._id}></input>
+                  <button type='submit' placeholder='Delete'></button>
+              </form>
             </div>
           )
         })}
