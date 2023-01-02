@@ -19,14 +19,22 @@ const newBlogPostdata = {
   BlogBody,
 }
 const [blogarticleposts, setblogarticleposts] = useState([])
+const [blogarticlcomments, setblogarticlecomments] = useState([])
+
 
 useEffect(() => {
-  const fetcher = async () => { // fetches blog posts from the blog post api
+  const fetchblogposts = async () => { // fetches blog posts from the blog post api
     const fetchapiaddress = await fetch('http://localhost:3001/posts')
     fetchapiaddress.json().then((result) => {setblogarticleposts(result)}).catch((err) => console.log(err))
   }
-  fetcher()
+  const fetchblogcomments = async () => {
+    const fetchapiaddress = await fetch('http://localhost:3001/comments')
+    fetchapiaddress.json().then((result) => {setblogarticlecomments(result)}).catch((err) => {console.log(err)})
+  } 
+  fetchblogcomments()
+  fetchblogposts()
 },[]);
+
 
 
   const newblogpost = async (e) => { 
