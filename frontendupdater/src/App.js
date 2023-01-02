@@ -60,6 +60,16 @@ useEffect(() => {
           <input type = 'submit' onClick={(e) => {newblogpost(e)}}></input>
         </form>
       </header>
+      <div>
+        {blogarticlcomments.map((item) => {
+          return (
+            <div key = {item._id}>
+              <div>{item.username}</div>
+              <div>{item.message}</div>
+            </div>
+          )
+        })}
+      </div>
 
       <div>{blogarticleposts.map((item) => {
         console.log(item)
