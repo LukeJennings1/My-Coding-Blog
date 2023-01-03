@@ -48,7 +48,7 @@ const [blogPostComments, setblogPostComments] = useState([]);
     return (
         <div id = 'individualPost-page-wrapper'>
             <div className= 'blog-title-wrapper' id = 'post-header'>
-                <Link to = '/' className='blog-article-link-button'>
+                <Link to = '/' className='blog-article-link-button-header'>
                  <h1>Luke's Coding Blog</h1>
                 </Link>
                 <Link to = '/'>
