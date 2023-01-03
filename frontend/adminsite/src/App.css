@@ -55,11 +55,12 @@
   display: grid;
   justify-content: center;
   border: solid #ca4b7e;
-  border-radius: 3px;
+  border-radius: 4px;
   align-items: center;
   color: rgb(226, 225, 225);
   height: 80vh;
   overflow: scroll;
+  place-items: center;
 }
 #blog-article-read-more-button {
   height: 50px;
@@ -70,6 +71,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  padding: 5px;
   color: #a80b4a;
 }
 @keyframes hover-fade {
@@ -84,7 +86,10 @@
 }
 .blog-article-link-button {
   text-decoration: none;
-  color:  #C3073F;
+  color:#C3073F;
+  padding: 5px;
+  width: 200px;
+  max-width: 300px;
 }
 #blog-content-wrapper {
   display: flex;
