@@ -85,7 +85,7 @@ const [blogPostComments, setblogPostComments] = useState([]);
             <h1 id = 'input-comment-title'>Leave a comment</h1>
             <input type='text'  maxLength="40" id = 'name-post' name = 'username' placeholder='Name' onChange={(e) => {SetUsername(e.target.value)}}></input>
             <textarea type='text' maxLength="480" id = 'textarea-post' rows='4' col = '10' name = 'message' placeholder='Message' onChange={(e) => {setMessage(e.target.value)}}></textarea>
-            <button type ='submit' disabled={hasSubmittedMessage} onClick={(e) => {submitHandler(e)}} >Submit</button>
+            <button type ='submit' id = 'submit-comment-button' disabled={hasSubmittedMessage} onClick={(e) => {submitHandler(e)}} >Submit</button>
         </form>
         </div>
         

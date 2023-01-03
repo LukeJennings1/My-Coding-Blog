@@ -200,3 +200,19 @@
   font-size: 15px;
   padding-left: 5px;
 }
+#submit-comment-button {
+  padding: 5px;
+  width: 40%;
+  border-radius: 5px;
+  color:#d8d8d8;
+ 
+}
+#submit-comment-button:hover {
+  animation-name: cross-fade;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+@keyframes cross-fade {
+  0% {color: white; background-color: #1A1a1d;}
+  100%  {color: black; background-color:#7a7575;}
+}
