@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const data = async() => { 
-    const fetchedData = await fetch('http://localhost:3001/posts') // fetch the api
+    const fetchedData = await fetch('https://my-blog.up.railway.app/posts') // fetch the api
     fetchedData.json().then(result => {
       setApiData(result)
       console.log(result)

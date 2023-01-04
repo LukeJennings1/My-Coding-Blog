@@ -7,12 +7,13 @@ const cors = require('cors')
 require('dotenv').config(); // allow us to access the secure env file
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const PORT = process.env.PORT || 3001;
 
 
 app = express(); // initialise the express framework
 app.use(cors())
 
-app.listen(3001) // listen for requests on post 3001
+app.listen(PORT) // listen for requests on post 3001
 app.set('view engine', 'ejs')
 app.use(express.static('/Users/mac1/Node.JS/My-Coding-Blog/public'))
 app.use(express.urlencoded())

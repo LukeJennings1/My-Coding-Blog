@@ -24,11 +24,11 @@ const [blogarticlcomments, setblogarticlecomments] = useState([])
 
 useEffect(() => {
   const fetchblogposts = async () => { // fetches blog posts from the blog post api
-    const fetchapiaddress = await fetch('http://localhost:3001/posts')
+    const fetchapiaddress = await fetch('https://my-blog.up.railway.app/posts')
     fetchapiaddress.json().then((result) => {setblogarticleposts(result)}).catch((err) => console.log(err))
   }
   const fetchblogcomments = async () => {
-    const fetchapiaddress = await fetch('http://localhost:3001/comments')
+    const fetchapiaddress = await fetch('https://my-blog.up.railway.app/comments')
     fetchapiaddress.json().then((result) => {setblogarticlecomments(result); console.log(result)}).catch((err) => {console.log(err)})
   } 
   fetchblogcomments()
@@ -38,7 +38,7 @@ useEffect(() => {
   const newblogpost = async (e) => { 
     console.log(BlogTitle,BlogBody,BlogSubTitle)
     e.preventDefault();
-    const fetchposts = await fetch('http://localhost:3001/newarticle', {
+    const fetchposts = await fetch('https://my-blog.up.railway.app/newarticle', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -66,9 +66,9 @@ useEffect(() => {
             <div key = {item._id}>
               <div>{item.username}</div>
               <div>{item.message}</div>
-              <form action='http://localhost:3001/deletecomment' method='POST'>
+              <form action='https://my-blog.up.railway.app/deletecomment' method='POST'>
                 <input type="hidden"  name = 'id' value={item._id}></input>
-                  <button type='submit' placeholder='Delete'></button>
+                  <button type='submit' placeholder='Delete'>Delete Comment</button>
               </form>
             </div>
           )
@@ -80,9 +80,9 @@ useEffect(() => {
         return (
           <div key={item._id}>
             {item.blogTitle}
-             <form action='http://localhost:3001/delete' method='POST'>
+             <form action='https://my-blog.up.railway.app/delete' method='POST'>
                <input type="hidden" name = 'id' value={item._id}></input>
-                  <button type='submit' placeholder='Delete'>hello</button>
+                  <button type='submit' placeholder='Delete'>Delete Post</button>
                 </form>
           </div>
         )

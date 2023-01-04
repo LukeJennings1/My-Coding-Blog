@@ -17,14 +17,14 @@ const dataToSubmit = {
 const [blogPostComments, setblogPostComments] = useState([]);
 
     useEffect(() => {
-         fetch('http://localhost:3001/comments').then((res) => {return (res.json())})
+         fetch('https://my-blog.up.railway.app/comments').then((res) => {return (res.json())})
          .then((res) => setblogPostComments(res))
     },[hasSubmittedMessage])
 
     const submitHandler =  async (e) => {
-            e.preventDefault()
+            // e.preventDefault()
             if (username.length > 0 && message.length > 0) {
-             const push = await fetch('http://localhost:3001/blogComment',
+             const push = await fetch('https://my-blog.up.railway.app/blogComment',
              {
                 method: "POST",
                 headers: {'Content-Type':'application/json',
